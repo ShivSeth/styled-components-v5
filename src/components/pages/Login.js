@@ -22,8 +22,20 @@ const Form = styled.form`
     text-align: center;
     margin: 10px 0;
   }
+
+  > ${Button}:first-of-type {
+    margin-top: 20px;
+  }
+
+  > ${Input} {
+    margin-top: 20px;
+  }
+
+  > span {
+    margin-top: 10px;
+  }
 `
-export default function Login() {
+export default function Login(props) {
   const [formFields, setFormFields] = useState({
     username: '',
     password: '',
@@ -56,10 +68,14 @@ export default function Login() {
     }
   }, [timeOut])
 
+  console.log(props)
+  console.log(props.xyz + 'print')
+
   return (
     <PageLayout>
       <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
+        <span>Login if you have an account</span>
         {loading ? (
           <Spinner />
         ) : (
